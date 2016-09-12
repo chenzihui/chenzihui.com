@@ -1,9 +1,10 @@
 'use strict';
 
-var gulp     = require('gulp'),
-    sass     = require('gulp-sass'),
-    serve    = require('gulp-serve'),
-    del      = require('del');
+var gulp  = require('gulp'),
+    sass  = require('gulp-sass'),
+    serve = require('gulp-serve'),
+    watch = require('gulp-watch'),
+    del   = require('del');
 
 var SRC_DIR  = 'src',
     DIST_DIR = 'dist';
@@ -34,7 +35,17 @@ gulp.task('stylesheets', ['clean:css'], function() {
     .pipe(gulp.dest(DIST_DIR + '/styles'));
 });
 
-// Bootstrap development server.
-gulp.task('serve', ['stylesheets', 'html'], serve(DIST_DIR));
+// Build files for dist.
+gulp.task('build', ['stylesheets', 'html']);
 
-gulp.task('default', ['serve']);
+// Bootstrap development server.
+gulp.task('serve', ['build'], serve(DIST_DIR));
+
+// File watcher.
+gulp.task('watch', function(done) {
+  watch([SRC_DIR + '/*.html', SRC_DIR + '/styles/*.scss'], function() {
+    return gulp.start('build');
+  });
+});
+
+gulp.task('default', ['serve', 'watch']);

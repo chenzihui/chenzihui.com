@@ -1,1 +1,75 @@
 @import 'normalize';
+
+// General Styles
+// --------------------------------------------------
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #444;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  height: 100vh;
+  line-height: 2.1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: #e57373;
+  text-decoration: none;
+  transition: all .2s linear;
+}
+
+a:hover {
+  color: #d32f2f;
+}
+
+// App Specific Styles
+// --------------------------------------------------
+
+.secondary {
+  font-family: "Lora", Georgia, "Times New Roman", serif;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  padding-top: 210px;
+  width: 61.8%;
+}
+
+.content__title {
+  font-size: 2.618em;
+  letter-spacing: 10px;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.content__intro {
+  color: #666;
+  font-size: 1.6em;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.content__links {
+  font-size: 1.4em;
+  list-style-type: none;
+  margin-top: 2.1em;
+  padding: 0;
+  text-align: center;
+}
